@@ -6,11 +6,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const hasSettingAccess = false;
   const [queryClient] = useState(() => new QueryClient());
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider defaultOpen={true}>
-        <AppSidebar />
+        <AppSidebar hasSettingAccess={hasSettingAccess} />
         <SidebarTrigger />
         <Component {...pageProps} />
       </SidebarProvider>

@@ -11,25 +11,32 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-const items = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-  },
-  {
-    title: "List",
-    url: "/list",
-    icon: FileText,
-  },
-  {
-    title: "Setting",
-    url: "/setting",
-    icon: Settings,
-  },
-];
+interface Props {
+  hasSettingAccess: boolean;
+}
 
-export function AppSidebar() {
+export function AppSidebar({ hasSettingAccess }: Props) {
+  const items = [
+    {
+      title: "Home",
+      url: "/",
+      icon: Home,
+    },
+    {
+      title: "List",
+      url: "/list",
+      icon: FileText,
+    },
+    ...(hasSettingAccess
+      ? [
+          {
+            title: "Setting",
+            url: "/setting",
+            icon: Settings,
+          },
+        ]
+      : []),
+  ];
   return (
     <Sidebar>
       <SidebarContent>

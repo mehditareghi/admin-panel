@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -61,7 +60,6 @@ export default function List() {
               <CardTitle>{post.title}</CardTitle>
             </CardHeader>
             <CardDescription className="px-6">{post.body}</CardDescription>
-            <CardContent></CardContent>
           </Card>
         ))}
       </div>
